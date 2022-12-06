@@ -1,0 +1,40 @@
+server:
+  port: 8080
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 943047520@qq.com
+    password: zrifcshwchmgbdbe
+    default-encoding: UTF-8
+  redis:
+    timeout: 5000
+    port: 6379
+    host: localhost
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: 1ms
+        max-idle: 4
+        min-idle: 0
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/Machine_learning_platform?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: zem509525130
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+mybatis-plus:
+  configuration:
+    #控制台打印完整带参数SQL语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: assign_id
+logging:
+  level:
+    root: info
