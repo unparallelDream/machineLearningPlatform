@@ -41,7 +41,6 @@ import java.util.stream.Collectors;
  * @Description: TODO
  * @Version: 1.0
  */
-@Component
 @ServerEndpoint("/webSocket/{username}")
 public class WebSocketServer {
     private static final Logger log = LoggerFactory.getLogger(WebSocketServer.class);

@@ -2,14 +2,8 @@ package com.platform.machinelearningplatform.service.inter;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.platform.machinelearningplatform.common.Result;
-import com.platform.machinelearningplatform.entity.StudentMessage;
 import com.platform.machinelearningplatform.entity.StudentPicture;
-import org.apache.tomcat.util.http.fileupload.FileUpload;
-import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.Map;
-import java.util.Objects;
 
 /**
  * @BelongsProject: machineLearningPlatform

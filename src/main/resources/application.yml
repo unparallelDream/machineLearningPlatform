@@ -5,7 +5,7 @@ spring:
   mail:
     host: smtp.qq.com
     username: 943047520@qq.com
-    password: zrifcshwchmgbdbe
+    password: wgebjarhzpswbbgc
     default-encoding: UTF-8
   redis:
     timeout: 5000
