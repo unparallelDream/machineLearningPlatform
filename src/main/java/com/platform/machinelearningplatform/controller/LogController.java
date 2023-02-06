@@ -2,6 +2,8 @@ package com.platform.machinelearningplatform.controller;
 
 import com.platform.machinelearningplatform.common.Result;
 import com.platform.machinelearningplatform.entity.StudentMessage;
+import com.platform.machinelearningplatform.service.impl.LearningTimeUpdateServiceImp;
+import com.platform.machinelearningplatform.service.inter.LearningTimeUpdateService;
 import com.platform.machinelearningplatform.service.inter.LoginService;
 import com.platform.machinelearningplatform.service.inter.LogoutService;
 import com.platform.machinelearningplatform.utils.ValidateCodeUtils;
@@ -10,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -30,19 +33,26 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class LogController {
     @Resource
-    private RedisTemplate redisTemplate;
-    @Resource
     private StringRedisTemplate stringRedisTemplate;
 
+    @Autowired
+    public void setLearningTimeUpdateService(LearningTimeUpdateService learningTimeUpdateService) {
+        this.learningTimeUpdateService = learningTimeUpdateService;
+    }
+
+    private LearningTimeUpdateService learningTimeUpdateService;
     private LoginService loginService;
+
     @Autowired
     public void setLoginService(LoginService loginService) {
         this.loginService = loginService;
     }
+
     @Autowired
     public void setLogoutService(LogoutService logoutService) {
         this.logoutService = logoutService;
     }
+
     private LogoutService logoutService;
 
     @PostMapping("/login")
@@ -56,7 +66,7 @@ public class LogController {
     }
 
     @PostMapping("/loginEmail")
-    public Result<String> loginEmail(@RequestBody Map<String,String> map) {
+    public Result<String> loginEmail(@RequestBody Map<String, String> map) {
         return loginService.loginStudentEmail(map.get("studentEmail"), map.get("code"));
     }
 
@@ -68,5 +78,23 @@ public class LogController {
         String context = "欢迎使用机器学习平台\n您的登录验证码为: " + code + "\n有效时间为五分钟，请妥善保管。";
         loginService.sendMsg(email, subject, context);
         return Result.<String>success(null).successMsg("验证码发送成功");
+    }
+
+    @PutMapping("/updateLearningTime")
+    public Result<String> updateLearningTime() {
+        return this.learningTimeUpdateService.updateTime(SecurityContextHolder.getContext());
+    }
+
+    @PutMapping()
+    public Result<String> updateStudentMessage(@RequestBody StudentMessage studentMessage) {
+        return this.loginService.updateStudent(studentMessage);
+    }
+
+    @DeleteMapping()
+    public Result<String> deleteStudentMessage(@RequestBody StudentMessage studentMessage) {
+        if (studentMessage.getAccount()==null){
+            return Result.error("删除失败,账号不能为空");
+        }
+        return this.loginService.deleteStudent(studentMessage.getAccount());
     }
 }

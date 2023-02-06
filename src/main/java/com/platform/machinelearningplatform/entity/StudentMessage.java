@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @BelongsProject: machineLearningPlatform
@@ -37,7 +38,11 @@ public class StudentMessage implements Serializable {
     private String studentClass;
     private String studentSchool;
     private String studentSex;
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+    @TableField(fill = FieldFill.UPDATE)
+    private LocalDateTime updateTime;
     @TableLogic
-    //    @TableField(fill = FieldFill.INSERT)
     private Integer deleted;
+    private Long tempId;
 }

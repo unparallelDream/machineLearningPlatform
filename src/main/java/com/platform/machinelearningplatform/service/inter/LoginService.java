@@ -18,4 +18,6 @@ public interface LoginService extends IService<StudentMessage> {
     Result<String> loginStudent(StudentMessage studentMessage);
     Result<String> loginStudentEmail(String studentEmail,String code);
     void sendMsg(String mail, String subject, String context);
+    Result<String> updateStudent(StudentMessage studentMessage);
+    Result<String> deleteStudent(String account);
 }

@@ -21,5 +21,4 @@ import java.util.Objects;
  */
 public interface FileUploadService extends IService<StudentPicture> {
     Result<String> fileUpLoad(MultipartFile file,Long id);
-    void queryFile(Long id, StudentMessage message);
 }

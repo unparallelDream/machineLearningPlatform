@@ -10,6 +10,7 @@ import com.platform.machinelearningplatform.service.inter.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,10 +32,8 @@ public class RegisterServiceImpl extends ServiceImpl<StudentMessageMapper, Stude
     private FileUploadService fileUploadService;
 
     @Override
+    @Transactional
     public Result<String> register(StudentMessage message) {
-        Long id = message.getId();
-        log.error(id.toString());
-        message.setId(null);
         message.setPassword(new BCryptPasswordEncoder().encode(message.getPassword()));
         LambdaQueryWrapper<StudentMessage> wrapper = new LambdaQueryWrapper<>();
         wrapper
@@ -44,13 +43,9 @@ public class RegisterServiceImpl extends ServiceImpl<StudentMessageMapper, Stude
         if (!list(wrapper).isEmpty())
             return Result.error("注册失败,账号学号或邮箱重复");
         wrapper.clear();
-        boolean save = this.save(message);
-        if (save) {
-            wrapper.eq(StudentMessage::getAccount, message.getAccount());
-            List<StudentMessage> list = this.list(wrapper);
-            fileUploadService.queryFile(id, list.get(0));
-            return Result.<String>success(null).successMsg("注册成功");
-        } else
-            return Result.error("注册失败");
+        message.setTempId(message.getId());
+        message.setId(null);
+        this.save(message);
+        return Result.<String>success(null).successMsg("注册成功");
     }
 }

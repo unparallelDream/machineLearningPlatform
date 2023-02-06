@@ -5,11 +5,10 @@ import com.platform.machinelearningplatform.handler.AuthenticationEntryPointerIm
 import com.platform.machinelearningplatform.service.LoginMessage;
 import com.platform.machinelearningplatform.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
-import org.jetbrains.annotations.NotNull;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.access.AccessDeniedException;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,6 +21,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 
 /**
@@ -33,6 +33,7 @@ import java.io.IOException;
  * @Version: 1.0
  */
 @Component
+@Slf4j
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Autowired
     public void setAuthenticationEntryPointer(AuthenticationEntryPointerImpl authenticationEntryPointer) {
@@ -52,6 +53,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             //获取token
             String token = request.getHeader("Authorization");
             if (!StringUtils.hasText(token)){
+                log.error("没有token");
                 filterChain.doFilter(request,response);
                 return;
             }
@@ -61,11 +63,13 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                 Claims claims = JwtUtil.parseJWT(token);
                 userId = "login:"+claims.getSubject();
             } catch (Exception e) {
+                log.error("解析token错误");
                 filterChain.doFilter(request,response);
                 return;
             }
 //            验证并获取用户信息
             if (!redisTemplate.hasKey(userId)){
+                log.error("用户信息错误");
                 filterChain.doFilter(request,response);
                 return;
             }

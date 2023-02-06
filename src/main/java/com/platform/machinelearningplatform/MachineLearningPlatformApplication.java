@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 public class MachineLearningPlatformApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(MachineLearningPlatformApplication.class, args);
     }

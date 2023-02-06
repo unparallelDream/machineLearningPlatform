@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "account",
+      "type": "java.lang.String",
+      "description": "Description for account."
+    },
+    {
+      "name": "password",
+      "type": "java.lang.String",
+      "description": "Description for password."
+    },
+    {
+      "name": "id",
+      "type": "java.lang.String",
+      "description": "Description for id."
+    }
+  ] }

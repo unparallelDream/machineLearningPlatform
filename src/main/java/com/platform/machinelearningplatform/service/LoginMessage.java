@@ -3,9 +3,14 @@ package com.platform.machinelearningplatform.service;
 import com.platform.machinelearningplatform.entity.StudentMessage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -16,12 +21,27 @@ import java.util.Collection;
  * @Description: TODO
  * @Version: 1.0
  */
-@AllArgsConstructor
+//@AllArgsConstructor
 @Data
+@AllArgsConstructor
+@Slf4j
+@PropertySource({"classpath:application.yml"})
 public class LoginMessage implements UserDetails {
+    public LoginMessage(StudentMessage studentMessage) {
+        this.studentMessage = studentMessage;
+    }
     private StudentMessage studentMessage;
+    private String account;
+    private String password;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        ArrayList<GrantedAuthority> strings = new ArrayList<>();
+        if (studentMessage.getAccount().equals(account)&&encoder.matches(password,studentMessage.getPassword())){
+            strings.add((GrantedAuthority) () -> "ROLE_root");
+            return strings;
+        }
         return null;
     }
 

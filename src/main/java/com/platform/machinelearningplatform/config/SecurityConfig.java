@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,6 +27,7 @@ import javax.annotation.Resource;
  * @Version: 1.0
  */
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
     @Autowired
     public void setJwtAuthenticationTokenFilter(JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter) {
@@ -56,7 +58,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(@Autowired HttpSecurity http) throws Exception {
         http
                 //关闭csrf
                 .csrf().disable()
@@ -70,13 +72,18 @@ public class SecurityConfig {
                 .antMatchers("/student/loginEmail").permitAll()
                 .antMatchers("/student/send/**").permitAll()
                 .antMatchers("/student/uploadAvatar").anonymous()//匿名访问
-                .antMatchers("/static/**","/index").permitAll()
-//                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/static/**","/index").hasAuthority("ROLE_root")
+                .antMatchers("/manager/**")
+//                .permitAll()
+                .hasAuthority("ROLE_root")
+                .antMatchers("/markdown/**").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
                 .antMatchers("/doc.html").permitAll()
+                .antMatchers("/webSocket/**").permitAll()
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/swagger-resources").permitAll()
                 .antMatchers("/v2/api-docs").permitAll()
-//                .antMatchers().permitAll()//全部通行
+//                .antMatchers("/**").permitAll()
                 .and()
                 // 除上面外的所有请求全部需要鉴权认证
                 .authorizeRequests()
@@ -101,7 +108,6 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager() throws Exception {
-        AuthenticationManager authenticationManager = authenticationConfiguration.getAuthenticationManager();
-        return authenticationManager;
+        return authenticationConfiguration.getAuthenticationManager();
     }
 }

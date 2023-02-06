@@ -1,5 +1,6 @@
 server:
   port: 8080
+
 spring:
   mail:
     host: smtp.qq.com
@@ -23,9 +24,11 @@ spring:
     username: root
     password: zem509525130
     driver-class-name: com.mysql.cj.jdbc.Driver
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
+  message:
+    encoding=UTF-8:
+  web:
+    resources:
+      static-locations: classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources
 mybatis-plus:
   configuration:
     #控制台打印完整带参数SQL语句
@@ -37,4 +40,7 @@ mybatis-plus:
       id-type: assign_id
 logging:
   level:
-    root: info
+    root: debug
+id: 123
+account: root
+password: 123456

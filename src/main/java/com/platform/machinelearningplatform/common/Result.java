@@ -54,6 +54,7 @@ public class Result<T> {
     public static <T>Result<T> success(T value) {
         Result<T> result = new Result<>();
         result.data=value;
+        result.code = 1;
         return result;
     }
 }
