@@ -64,12 +64,12 @@ public class QueryDataServiceImp extends ServiceImpl<StudentPictureMapper, Stude
             return Result.error("学生信息不存在");
         }
         LambdaQueryWrapper<StudentPicture> wrapperPicture = new LambdaQueryWrapper<>();
-        wrapperPicture.eq(StudentPicture::getId, studentMessage.getId());
+        wrapperPicture.eq(StudentPicture::getStudentId, studentMessage.getId());
         List<StudentPicture> list = list(wrapperPicture);
         if (list.isEmpty()) {
             return Result.error("头像不存在");
         }
-        return Result.success("data:image/png;base64," + new String(list.get(0).getPicture()));
+        return Result.success(list.get(0).getUrl());
     }
 
     @Override

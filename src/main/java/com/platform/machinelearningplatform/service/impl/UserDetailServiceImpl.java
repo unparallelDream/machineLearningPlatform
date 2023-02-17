@@ -46,6 +46,8 @@ public class UserDetailServiceImpl extends ServiceImpl<StudentMessageMapper, Stu
         LambdaQueryWrapper<StudentMessage> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(StudentMessage::getAccount,username);
         List<StudentMessage> list = list(wrapper);
+        if (list.isEmpty())
+            return new LoginMessage(new StudentMessage(),account,password);
         return new LoginMessage(list.get(0),account,password);
     }
 }

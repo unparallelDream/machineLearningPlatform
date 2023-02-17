@@ -53,7 +53,6 @@ public class QueryDataController {
         return queryDataService.getAccount();
     }
 
-    @Deprecated
     @GetMapping("/getAvatar")
     public Result<String> getHeader(@RequestParam String account) {
         return queryDataService.getPicture(account);

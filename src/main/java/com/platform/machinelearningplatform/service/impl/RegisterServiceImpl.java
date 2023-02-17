@@ -5,14 +5,11 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.platform.machinelearningplatform.common.Result;
 import com.platform.machinelearningplatform.entity.StudentMessage;
 import com.platform.machinelearningplatform.mapper.StudentMessageMapper;
-import com.platform.machinelearningplatform.service.inter.FileUploadService;
 import com.platform.machinelearningplatform.service.inter.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * @BelongsProject: machineLearningPlatform
@@ -24,13 +21,6 @@ import java.util.List;
  */
 @Service
 public class RegisterServiceImpl extends ServiceImpl<StudentMessageMapper, StudentMessage> implements RegisterService {
-    @Autowired
-    public void setFileUploadService(FileUploadService fileUploadService) {
-        this.fileUploadService = fileUploadService;
-    }
-
-    private FileUploadService fileUploadService;
-
     @Override
     @Transactional
     public Result<String> register(StudentMessage message) {
@@ -43,7 +33,6 @@ public class RegisterServiceImpl extends ServiceImpl<StudentMessageMapper, Stude
         if (!list(wrapper).isEmpty())
             return Result.error("注册失败,账号学号或邮箱重复");
         wrapper.clear();
-        message.setTempId(message.getId());
         message.setId(null);
         this.save(message);
         return Result.<String>success(null).successMsg("注册成功");

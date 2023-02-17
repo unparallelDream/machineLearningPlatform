@@ -46,7 +46,7 @@ public class LearningTimeUpdateServiceImp extends ServiceImpl<LearningTimeMapper
             return Result.<String>success(null).successMsg("更新时间成功");
         }
         //时间增加十分钟
-        this.updateById(LearningTime.builder().id(learningTime.getId()).studentId(studentId).time(learningTime.getTime() + 10).build());
+        this.updateById(LearningTime.builder().id(learningTime.getId()).studentId(studentId).time(learningTime.getTime() + 5).build());
         return Result.<String>success(null).successMsg("更新时间成功");
     }
 }

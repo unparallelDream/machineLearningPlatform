@@ -1,21 +1,20 @@
 package com.platform.machinelearningplatform.controller;
 
-import cn.hutool.core.codec.Base64Encoder;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.platform.machinelearningplatform.common.Result;
-import com.platform.machinelearningplatform.entity.StudentMessage;
 import com.platform.machinelearningplatform.entity.StudentPicture;
 import com.platform.machinelearningplatform.mapper.StudentMessageMapper;
 import com.platform.machinelearningplatform.mapper.StudentPictureMapper;
-import com.platform.machinelearningplatform.service.inter.FileUploadService;
 import com.platform.machinelearningplatform.utils.UserMessageUtils;
 import io.swagger.annotations.Api;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * @BelongsProject: machineLearningPlatform
@@ -29,37 +28,24 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/student")
 public class FileController {
-    private FileUploadService fileUploadService;
-
-    public FileUploadService getFileUploadService() {
-        return fileUploadService;
-    }
-
-    @Autowired
-    public void setFileUploadService(FileUploadService fileUploadService) {
-        this.fileUploadService = fileUploadService;
-    }
-    @PostMapping(value = "/uploadAvatar",consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public Result<String> fileUpload(@RequestParam MultipartFile file,@RequestParam Long id) {
-        return fileUploadService.fileUpLoad(file, id);
-    }
     @Autowired
     private StudentMessageMapper studentMessageMapper;
     @Autowired
     private StudentPictureMapper studentPictureMapper;
     @PostMapping("/updateAvatar")
     @SneakyThrows
-    public Result<String> fileUpLoad(MultipartFile file) {
-        StudentMessage one = studentMessageMapper.selectOne(new LambdaQueryWrapper<StudentMessage>().eq(StudentMessage::getAccount, UserMessageUtils.getAccountBySecurityContext(SecurityContextHolder.getContext())));
-        if (one==null||one.getId()==null){
+    public Result<String> fileUpLoad(@RequestBody Map<String,String> map) {
+        Long id = UserMessageUtils.getIdByAccount(map.get("account"),studentMessageMapper);
+        String url = map.get("url");
+        if (id==null){
             return Result.error("学生信息不存在");
         }
-        StudentPicture picture = studentPictureMapper.selectOne(new LambdaQueryWrapper<StudentPicture>().eq(StudentPicture::getId, one.getId()));
+        StudentPicture picture = studentPictureMapper.selectOne(new LambdaQueryWrapper<StudentPicture>().eq(StudentPicture::getStudentId, id));
         if (picture==null){
-            studentPictureMapper.insert(StudentPicture.builder().id(one.getId()).picture(Base64Encoder.encode(file.getBytes()).getBytes()).fileName(file.getName()).build());
+            studentPictureMapper.insert(StudentPicture.builder().studentId(id).url(url).build());
+            return Result.success("文件插入成功");
         }else {
-            studentPictureMapper.updateById(StudentPicture.builder().id(one.getId()).picture(Base64Encoder.encode(file.getBytes()).getBytes()).fileName(file.getName()).build());
+            return studentPictureMapper.update(StudentPicture.builder().studentId(id).url(url).build(),new LambdaQueryWrapper<StudentPicture>().eq(StudentPicture::getStudentId,id))!=0?Result.success("修改成功"):Result.error("修改失败");
         }
-        return Result.success("文件修改成功");
     }
 }

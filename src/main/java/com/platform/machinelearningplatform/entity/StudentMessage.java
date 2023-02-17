@@ -44,5 +44,4 @@ public class StudentMessage implements Serializable {
     private LocalDateTime updateTime;
     @TableLogic
     private Integer deleted;
-    private Long tempId;
 }

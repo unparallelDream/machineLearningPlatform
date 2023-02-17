@@ -28,7 +28,7 @@ public class MarkdownQueryServiceImp extends ServiceImpl<MarkdownMapper,Markdown
         var wrapper = new LambdaQueryWrapper<Markdown>();
         wrapper.eq(Markdown::getName,name);
         List<Markdown> list = this.list(wrapper);
-        if (list==null|| list.size() == 0){
+        if (list==null|| list.isEmpty()){
             return null;
         }
         return list.get(0).getContent();

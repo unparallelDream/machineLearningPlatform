@@ -85,7 +85,7 @@ public class ManageServiceImp {
     @Autowired
     private LearningTimeMapper learningTimeMapper;
 
-    public void createExcelFile() {
+    public void createExcelFile(String path) {
         List<StudentMessage> list = studentMessageMapper.selectList(new LambdaQueryWrapper<>());
         List<LearningTime> learningTimes = learningTimeMapper.selectList(new LambdaQueryWrapper<>());
         List<ExcelData> excelData = list.stream().map(e -> {
@@ -110,7 +110,7 @@ public class ManageServiceImp {
                             .time(time).count(integers.size()).build();
                 }
         ).toList();
-        EasyExcel.write("../machineLearningPlatform/src/main/resources/static/学生信息.xlsx", ExcelData.class)
+        EasyExcel.write(path, ExcelData.class)
                 .sheet("模板")
                 .doWrite(() -> {
                     // 分页查询数据

@@ -41,6 +41,7 @@ import java.util.stream.Collectors;
  * @Description: TODO
  * @Version: 1.0
  */
+@Component
 @ServerEndpoint("/webSocket/{username}")
 public class WebSocketServer {
     private static final Logger log = LoggerFactory.getLogger(WebSocketServer.class);
@@ -58,11 +59,10 @@ public class WebSocketServer {
     public void onOpen(Session session, @PathParam("username") String username) {
         sessionMap.put(username, session);
         log.info("有新用户加入，username={}, 当前在线人数为：{}", username, sessionMap.size());
-        Page<Message> messagePage = new Page<>(1, 50);
+        Page<Message> messagePage = new Page<>(1, 100);
         Page<Message> page = MapperUtils.getMapper().selectPage(messagePage, new LambdaQueryWrapper<Message>().eq(false, Message::getFromUser, username).orderByAsc(Message::getCreateTime));
         List<Message> records = page.getRecords();
         List<MessageData> collect = records.stream().map(e -> MessageData.builder().text(e.getContent()).from(e.getFromUser()).createTime(e.getCreateTime()).build()).collect(Collectors.toList());
-
         sendAllMessage(new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class, (JsonSerializer<LocalDateTime>) (localDateTime, type, jsonSerializationContext) -> new JsonPrimitive(localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))))
                 .serializeNulls()

@@ -33,14 +33,17 @@ public class SecurityConfig {
     public void setJwtAuthenticationTokenFilter(JwtAuthenticationTokenFilter jwtAuthenticationTokenFilter) {
         this.jwtAuthenticationTokenFilter = jwtAuthenticationTokenFilter;
     }
+
     @Autowired
     public void setAuthenticationEntryPointer(AuthenticationEntryPointerImpl authenticationEntryPointer) {
         this.authenticationEntryPointer = authenticationEntryPointer;
     }
+
     @Autowired
     public void setAccessDeniedHandler(AccessDeniedHandlerImpl accessDeniedHandler) {
         this.accessDeniedHandler = accessDeniedHandler;
     }
+
     @Resource
     public void setAuthenticationConfiguration(AuthenticationConfiguration authenticationConfiguration) {
         this.authenticationConfiguration = authenticationConfiguration;
@@ -71,11 +74,13 @@ public class SecurityConfig {
                 .antMatchers("/student/register").anonymous()
                 .antMatchers("/student/loginEmail").permitAll()
                 .antMatchers("/student/send/**").permitAll()
-                .antMatchers("/student/uploadAvatar").anonymous()//匿名访问
-                .antMatchers("/static/**","/index").hasAuthority("ROLE_root")
-                .antMatchers("/manager/**")
+                .antMatchers("/student/updateAvatar").permitAll()
+                .antMatchers("/static/**", "/index").hasAuthority("ROLE_root")
+                .antMatchers("/manager/getTrainingData").authenticated()
+                .antMatchers("/manager/getTrainResult").authenticated()
+                .antMatchers("/manager/getParamsById").authenticated()
+                .antMatchers("/manager/**").hasAuthority("ROLE_root")
 //                .permitAll()
-                .hasAuthority("ROLE_root")
                 .antMatchers("/markdown/**").permitAll()
                 .antMatchers("/swagger-ui.html").permitAll()
                 .antMatchers("/doc.html").permitAll()

@@ -2,7 +2,6 @@ package com.platform.machinelearningplatform.controller;
 
 import com.platform.machinelearningplatform.common.Result;
 import com.platform.machinelearningplatform.entity.StudentMessage;
-import com.platform.machinelearningplatform.service.impl.LearningTimeUpdateServiceImp;
 import com.platform.machinelearningplatform.service.inter.LearningTimeUpdateService;
 import com.platform.machinelearningplatform.service.inter.LoginService;
 import com.platform.machinelearningplatform.service.inter.LogoutService;
@@ -10,7 +9,6 @@ import com.platform.machinelearningplatform.utils.ValidateCodeUtils;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +52,6 @@ public class LogController {
     }
 
     private LogoutService logoutService;
-
     @PostMapping("/login")
     public Result<String> login(@RequestBody StudentMessage studentMessage) {
         return loginService.loginStudent(studentMessage);

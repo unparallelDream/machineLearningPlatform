@@ -13,6 +13,7 @@ import com.platform.machinelearningplatform.entity.TrainResult;
 import com.platform.machinelearningplatform.mapper.StudentMessageMapper;
 import com.platform.machinelearningplatform.service.impl.ManageServiceImp;
 import com.platform.machinelearningplatform.service.inter.QueryDataService;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -111,17 +112,18 @@ public class ManageController {
 
     @GetMapping("/excel")
     public Result<String> createExcelFile() {
-        manageServiceImp.createExcelFile();
+        manageServiceImp.createExcelFile("./学生信息.xlsx");
         return Result.success("文件生成成功");
     }
 
+    @SneakyThrows
     @GetMapping("/static/{fileName}")
-    public ResponseEntity staticResources(@PathVariable String fileName) throws IOException {
-        FileInputStream fileInputStream = new FileInputStream("../machineLearningPlatform/src/main/resources/static/" + fileName);
+    public ResponseEntity staticResources(@PathVariable String fileName) {
+        FileInputStream fileInputStream = new FileInputStream("./" + fileName);
         byte[] bytes = fileInputStream.readAllBytes();
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType("application/octet-stream"))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + URLEncoder.encode(fileName, StandardCharsets.UTF_8) +"\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + URLEncoder.encode(fileName, StandardCharsets.UTF_8) + "\"")
                 .body(bytes);
     }
 }

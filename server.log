@@ -1,0 +1,426 @@
+2023-02-17 11:03:53.513  INFO 118864 --- [main] c.p.m.MachineLearningPlatformApplication : Starting MachineLearningPlatformApplication using Java 17.0.3.1 on 似水年华 with PID 118864 (C:\Users\94304\IdeaProjects\machineLearningPlatform\target\classes started by 94304 in C:\Users\94304\IdeaProjects\machineLearningPlatform)
+2023-02-17 11:03:53.519  INFO 118864 --- [main] c.p.m.MachineLearningPlatformApplication : No active profile set, falling back to 1 default profile: "default"
+2023-02-17 11:03:54.503  INFO 118864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-02-17 11:03:54.506  INFO 118864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-02-17 11:03:54.537  INFO 118864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2023-02-17 11:03:55.190  INFO 118864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-17 11:03:55.199  INFO 118864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-17 11:03:55.200  INFO 118864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-02-17 11:03:55.344  INFO 118864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-17 11:03:55.344  INFO 118864 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1786 ms
+2023-02-17 11:03:55.678  WARN 118864 --- [main] .d.DefaultDnsServerAddressStreamProvider : Default DNS servers: [/8.8.8.8:53, /8.8.4.4:53] (Google Public DNS as a fallback)
+2023-02-17 11:03:58.015  INFO 118864 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-17 11:03:58.425  INFO 118864 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@558575fe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25fcdcc6, org.springframework.security.web.context.SecurityContextPersistenceFilter@3ab70d34, org.springframework.security.web.header.HeaderWriterFilter@71891d6b, org.springframework.web.filter.CorsFilter@180fb796, org.springframework.security.web.authentication.logout.LogoutFilter@2de07c57, com.platform.machinelearningplatform.filter.JwtAuthenticationTokenFilter@68f69ca3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c523bdd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3741071d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@79ae3fb1, org.springframework.security.web.session.SessionManagementFilter@435a2c7d, org.springframework.security.web.access.ExceptionTranslationFilter@634d3439, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c6efee3]
+2023-02-17 11:03:59.379  INFO 118864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-17 11:04:00.429  INFO 118864 --- [main] c.p.m.MachineLearningPlatformApplication : Started MachineLearningPlatformApplication in 7.262 seconds (JVM running for 8.002)
+2023-02-17 11:04:00.683  INFO 118864 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-17 11:04:00.683  INFO 118864 --- [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 11:04:00.684  INFO 118864 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-17 11:04:00.687  INFO 118864 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-02-17 11:04:01.868 ERROR 118864 --- [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:330) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:105) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:94) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:88) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:78) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:122) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:814) ~[na:na]
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) ~[na:na]
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:948) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:818) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	... 60 common frames omitted
+Caused by: java.net.NoRouteToHostException: No route to host: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	... 63 common frames omitted
+
+2023-02-17 11:04:01.872  WARN 118864 --- [RMI TCP Connection(4)-127.0.0.1] o.s.b.a.jdbc.DataSourceHealthIndicator   : DataSource health check failed
+
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:83) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:330) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.getProduct(DataSourceHealthIndicator.java:122) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doDataSourceHealthCheck(DataSourceHealthIndicator.java:105) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.doHealthCheck(DataSourceHealthIndicator.java:100) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:94) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:88) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:78) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:122) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:814) ~[na:na]
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) ~[na:na]
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:828) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:448) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:159) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:117) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:80) ~[spring-jdbc-5.3.23.jar:5.3.23]
+	... 47 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:89) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:948) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:818) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	... 60 common frames omitted
+Caused by: java.net.NoRouteToHostException: No route to host: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:597) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:153) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:63) ~[mysql-connector-java-8.0.30.jar:8.0.30]
+	... 63 common frames omitted
+
+2023-02-17 11:04:02.116  WARN 118864 --- [RMI TCP Connection(4)-127.0.0.1] o.s.b.actuate.mail.MailHealthIndicator   : Mail health check failed
+
+com.sun.mail.util.MailConnectException: Couldn't connect to host, port: smtp.163.com, 465; timeout -1
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:2210) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:722) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at javax.mail.Service.connect(Service.java:342) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518) ~[spring-context-support-5.3.23.jar:5.3.23]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:398) ~[spring-context-support-5.3.23.jar:5.3.23]
+	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:42) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:94) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:88) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:78) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:122) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97) ~[spring-boot-actuator-2.7.5.jar:2.7.5]
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:814) ~[na:na]
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) ~[na:na]
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.net.UnknownHostException: smtp.163.com
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:583) ~[na:na]
+	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:335) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:214) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	at com.sun.mail.smtp.SMTPTransport.openServer(SMTPTransport.java:2160) ~[jakarta.mail-1.6.7.jar:1.6.7]
+	... 48 common frames omitted
+
+2023-02-17 11:04:02.881  WARN 118864 --- [boundedElastic-1] o.s.b.a.r.RedisReactiveHealthIndicator   : Redis health check failed
+
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1689) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1597) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1383) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1366) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedReactiveConnection(LettuceConnectionFactory.java:1117) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:509) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getReactiveConnection(LettuceConnectionFactory.java:103) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at reactor.core.publisher.MonoSupplier.call(MonoSupplier.java:86) ~[reactor-core-3.4.24.jar:3.4.24]
+	at reactor.core.publisher.FluxSubscribeOnCallable$CallableSubscribeOnSubscription.run(FluxSubscribeOnCallable.java:227) ~[reactor-core-3.4.24.jar:3.4.24]
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68) ~[reactor-core-3.4.24.jar:3.4.24]
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28) ~[reactor-core-3.4.24.jar:3.4.24]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1595) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	... 14 common frames omitted
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to localhost/<unresolved>:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:330) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:216) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.lambda$null$0(LettucePoolingConnectionProvider.java:97) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:211) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:201) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:70) ~[commons-pool2-2.11.1.jar:2.11.1]
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:571) ~[commons-pool2-2.11.1.jar:2.11.1]
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:298) ~[commons-pool2-2.11.1.jar:2.11.1]
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:223) ~[commons-pool2-2.11.1.jar:2.11.1]
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:122) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:117) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:103) ~[spring-data-redis-2.7.5.jar:2.7.5]
+	... 15 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.84.Final.jar:4.1.84.Final]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-02-17 11:29:36.958  INFO 101488 --- [main] c.p.m.MachineLearningPlatformApplication : Starting MachineLearningPlatformApplication using Java 17.0.3.1 on 似水年华 with PID 101488 (C:\Users\94304\IdeaProjects\machineLearningPlatform\target\classes started by 94304 in C:\Users\94304\IdeaProjects\machineLearningPlatform)
+2023-02-17 11:29:36.960  INFO 101488 --- [main] c.p.m.MachineLearningPlatformApplication : No active profile set, falling back to 1 default profile: "default"
+2023-02-17 11:29:37.942  INFO 101488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-02-17 11:29:37.944  INFO 101488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-02-17 11:29:37.974  INFO 101488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2023-02-17 11:29:38.543  INFO 101488 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-17 11:29:38.550  INFO 101488 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-17 11:29:38.550  INFO 101488 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-02-17 11:29:38.685  INFO 101488 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-17 11:29:38.686  INFO 101488 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1693 ms
+2023-02-17 11:29:40.005  INFO 101488 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-17 11:29:40.172  INFO 101488 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45c28c49, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c6fc278, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c12f54a, org.springframework.security.web.header.HeaderWriterFilter@325e03b, org.springframework.web.filter.CorsFilter@23ee92df, org.springframework.security.web.authentication.logout.LogoutFilter@412440c1, com.platform.machinelearningplatform.filter.JwtAuthenticationTokenFilter@4a41caed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42a7e7e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e2d9923, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a6a4595, org.springframework.security.web.session.SessionManagementFilter@6bd28e4a, org.springframework.security.web.access.ExceptionTranslationFilter@23b087c3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13f7c165]
+2023-02-17 11:29:40.523  INFO 101488 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-17 11:29:40.806  INFO 101488 --- [main] c.p.m.MachineLearningPlatformApplication : Started MachineLearningPlatformApplication in 4.177 seconds (JVM running for 4.753)
+2023-02-17 11:29:41.259  INFO 101488 --- [RMI TCP Connection(5)-192.168.101.15] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-17 11:29:41.259  INFO 101488 --- [RMI TCP Connection(5)-192.168.101.15] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-17 11:29:41.262  INFO 101488 --- [RMI TCP Connection(5)-192.168.101.15] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-02-17 11:29:41.270  INFO 101488 --- [RMI TCP Connection(7)-192.168.101.15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 11:29:42.071  INFO 101488 --- [RMI TCP Connection(7)-192.168.101.15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-17 11:31:47.074 ERROR 101488 --- [http-nio-8080-exec-1] c.p.m.f.JwtAuthenticationTokenFilter     : 没有token
+2023-02-17 11:31:56.870  WARN 101488 --- [http-nio-8080-exec-3] o.s.web.servlet.PageNotFound             : No mapping for POST /student/fileUpload
+2023-02-17 11:37:59.558  INFO 101488 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-17 11:38:09.576  INFO 101488 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-17 11:38:15.397  INFO 118804 --- [main] c.p.m.MachineLearningPlatformApplication : Starting MachineLearningPlatformApplication using Java 17.0.3.1 on 似水年华 with PID 118804 (C:\Users\94304\IdeaProjects\machineLearningPlatform\target\classes started by 94304 in C:\Users\94304\IdeaProjects\machineLearningPlatform)
+2023-02-17 11:38:15.399  INFO 118804 --- [main] c.p.m.MachineLearningPlatformApplication : No active profile set, falling back to 1 default profile: "default"
+2023-02-17 11:38:16.348  INFO 118804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-02-17 11:38:16.350  INFO 118804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-02-17 11:38:16.381  INFO 118804 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+2023-02-17 11:38:16.968  INFO 118804 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-17 11:38:16.977  INFO 118804 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-17 11:38:16.977  INFO 118804 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-02-17 11:38:17.124  INFO 118804 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-17 11:38:17.124  INFO 118804 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1692 ms
+2023-02-17 11:38:18.303  INFO 118804 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-17 11:38:18.468  INFO 118804 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a9ef32e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e2ee348, org.springframework.security.web.context.SecurityContextPersistenceFilter@794f937a, org.springframework.security.web.header.HeaderWriterFilter@4c12f54a, org.springframework.web.filter.CorsFilter@61f08aa9, org.springframework.security.web.authentication.logout.LogoutFilter@7607340f, com.platform.machinelearningplatform.filter.JwtAuthenticationTokenFilter@4a41caed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e663ab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4b74a67a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a1f22f2, org.springframework.security.web.session.SessionManagementFilter@7a7f2247, org.springframework.security.web.access.ExceptionTranslationFilter@55e88bc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30ca66c5]
+2023-02-17 11:38:18.850  INFO 118804 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-17 11:38:19.136  INFO 118804 --- [main] c.p.m.MachineLearningPlatformApplication : Started MachineLearningPlatformApplication in 4.035 seconds (JVM running for 4.577)
+2023-02-17 11:38:19.184  INFO 118804 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-17 11:38:19.184  INFO 118804 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-17 11:38:19.187  INFO 118804 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-02-17 11:38:19.203 ERROR 118804 --- [http-nio-8080-exec-1] c.p.m.f.JwtAuthenticationTokenFilter     : 没有token
+2023-02-17 11:38:19.271  INFO 118804 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 11:38:19.973  INFO 118804 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-17 11:40:15.266  INFO 118804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-17 11:40:15.787  INFO 118804 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-17 11:40:21.689  INFO 122292 --- [main] c.p.m.MachineLearningPlatformApplication : Starting MachineLearningPlatformApplication using Java 17.0.3.1 on 似水年华 with PID 122292 (C:\Users\94304\IdeaProjects\machineLearningPlatform\target\classes started by 94304 in C:\Users\94304\IdeaProjects\machineLearningPlatform)
+2023-02-17 11:40:21.690  INFO 122292 --- [main] c.p.m.MachineLearningPlatformApplication : No active profile set, falling back to 1 default profile: "default"
+2023-02-17 11:40:22.569  INFO 122292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-02-17 11:40:22.571  INFO 122292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-02-17 11:40:22.601  INFO 122292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-02-17 11:40:23.130  INFO 122292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-17 11:40:23.137  INFO 122292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-17 11:40:23.138  INFO 122292 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-02-17 11:40:23.274  INFO 122292 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-17 11:40:23.274  INFO 122292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1552 ms
+2023-02-17 11:40:24.452  INFO 122292 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-17 11:40:24.605  INFO 122292 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45c28c49, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c6fc278, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c12f54a, org.springframework.security.web.header.HeaderWriterFilter@325e03b, org.springframework.web.filter.CorsFilter@23ee92df, org.springframework.security.web.authentication.logout.LogoutFilter@412440c1, com.platform.machinelearningplatform.filter.JwtAuthenticationTokenFilter@4a41caed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42a7e7e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e2d9923, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a6a4595, org.springframework.security.web.session.SessionManagementFilter@6bd28e4a, org.springframework.security.web.access.ExceptionTranslationFilter@23b087c3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13f7c165]
+2023-02-17 11:40:24.992  INFO 122292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-17 11:40:25.307  INFO 122292 --- [main] c.p.m.MachineLearningPlatformApplication : Started MachineLearningPlatformApplication in 3.906 seconds (JVM running for 4.47)
+2023-02-17 11:40:25.531  INFO 122292 --- [RMI TCP Connection(3)-192.168.101.15] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-17 11:40:25.531  INFO 122292 --- [RMI TCP Connection(3)-192.168.101.15] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-17 11:40:25.532  INFO 122292 --- [RMI TCP Connection(3)-192.168.101.15] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-02-17 11:40:25.534  INFO 122292 --- [RMI TCP Connection(4)-192.168.101.15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 11:40:26.260  INFO 122292 --- [RMI TCP Connection(4)-192.168.101.15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-17 11:41:05.618  INFO 122292 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-17 11:41:06.143  INFO 122292 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-17 11:41:11.972  INFO 120740 --- [main] c.p.m.MachineLearningPlatformApplication : Starting MachineLearningPlatformApplication using Java 17.0.3.1 on 似水年华 with PID 120740 (C:\Users\94304\IdeaProjects\machineLearningPlatform\target\classes started by 94304 in C:\Users\94304\IdeaProjects\machineLearningPlatform)
+2023-02-17 11:41:11.974  INFO 120740 --- [main] c.p.m.MachineLearningPlatformApplication : No active profile set, falling back to 1 default profile: "default"
+2023-02-17 11:41:12.857  INFO 120740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-02-17 11:41:12.859  INFO 120740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-02-17 11:41:12.886  INFO 120740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-02-17 11:41:13.410  INFO 120740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-17 11:41:13.417  INFO 120740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-17 11:41:13.418  INFO 120740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-02-17 11:41:13.553  INFO 120740 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-17 11:41:13.553  INFO 120740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1547 ms
+2023-02-17 11:41:14.666  INFO 120740 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-02-17 11:41:14.817  INFO 120740 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@445f6f73, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27f31d91, org.springframework.security.web.context.SecurityContextPersistenceFilter@34ea86ff, org.springframework.security.web.header.HeaderWriterFilter@761b9314, org.springframework.web.filter.CorsFilter@6b03c35c, org.springframework.security.web.authentication.logout.LogoutFilter@289cf7db, com.platform.machinelearningplatform.filter.JwtAuthenticationTokenFilter@4a41caed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@626b9092, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ac2829e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1a05ff8e, org.springframework.security.web.session.SessionManagementFilter@acea29e, org.springframework.security.web.access.ExceptionTranslationFilter@1ac68548, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30e15628]
+2023-02-17 11:41:15.150  INFO 120740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-17 11:41:15.400  INFO 120740 --- [main] c.p.m.MachineLearningPlatformApplication : Started MachineLearningPlatformApplication in 3.713 seconds (JVM running for 4.256)
+2023-02-17 11:41:15.808  INFO 120740 --- [RMI TCP Connection(2)-192.168.101.15] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-17 11:41:15.808  INFO 120740 --- [RMI TCP Connection(2)-192.168.101.15] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-17 11:41:15.810  INFO 120740 --- [RMI TCP Connection(2)-192.168.101.15] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-02-17 11:41:15.810  INFO 120740 --- [RMI TCP Connection(1)-192.168.101.15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 11:41:16.528  INFO 120740 --- [RMI TCP Connection(1)-192.168.101.15] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-17 11:41:22.886 ERROR 120740 --- [http-nio-8080-exec-1] c.p.m.f.JwtAuthenticationTokenFilter     : 解析token错误
+2023-02-17 11:41:22.905 ERROR 120740 --- [http-nio-8080-exec-1] c.p.m.h.AuthenticationEntryPointerImpl   : Full authentication is required to access this resource
+2023-02-17 11:41:25.646 ERROR 120740 --- [http-nio-8080-exec-2] c.p.m.f.JwtAuthenticationTokenFilter     : 没有token
+2023-02-17 11:45:23.819  INFO 120740 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-17 11:45:33.831  INFO 120740 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

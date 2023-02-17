@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/student")
 @Api("用户注册")
-public class RegisterController {
+public class
+RegisterController {
     @Autowired
     public void setRegisterService(RegisterService registerService) {
         this.registerService = registerService;

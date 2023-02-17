@@ -24,6 +24,6 @@ import java.io.Serializable;
 public class StudentPicture implements Serializable {
     private final static Long serialVersionUID=1L;
     private Long id;
-    private byte[] picture;
-    private String fileName;
+    private String url;
+    private Long studentId;
 }
