@@ -1,22 +1,32 @@
 
 # Machine-Learning-Platform
+
+机器学习平台，可以进行CNN神经网络、生成对抗网络等知识的学习
 ##### 环境依赖
 
-java 17<br/>
-mysql 8<br/>
+java 17
+
+mysql 8
+
 redis
 
 #### 本机测试环境配置
-1.安装mysql(端口默认3306)<br/>
-2.安装redis(端口某人6379)<br/>
-3.将src/resources/application.yml中   spring:profiles:active属性值改为dev，使用开发模式配置<br/>
-4.配置同目录下application-dev信息，包括数据库url，账号密码和mysql、redis端口<br/>
-5.导入数据库表信息，将data.sql导入数据库<br/>
-6.启动项目<br/>
+1.安装mysql(端口默认3306)
+
+2.安装redis(端口某人6379)
+
+3.将src/resources/application.yml中   spring:profiles:active属性值改为dev，使用开发模式配置
+
+4.配置同目录下application-dev信息，包括数据库url，账号密码和mysql、redis端口
+
+5.导入数据库表信息，将data.sql导入数据库
+
+6.启动项目
 
 #### 接口文档查看
-服务器端:<br/> http://101.201.65.86:8080/swagger-ui/index.html <br/>
-本地启动:<br/> http://localhost:8080/swagger-ui/index.html <br/>
+服务器端:<br/> http://101.201.65.86:8080/swagger-ui/index.html
+
+本地启动:<br/> http://localhost:8080/swagger-ui/index.html
 ##### 项目目录
 ```
 .
