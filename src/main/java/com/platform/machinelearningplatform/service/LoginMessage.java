@@ -34,7 +34,7 @@ public class LoginMessage implements UserDetails {
     private String account;
     private String password;
 
-  @Override
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         ArrayList<GrantedAuthority> strings = new ArrayList<>();
@@ -42,15 +42,9 @@ public class LoginMessage implements UserDetails {
             strings.add((GrantedAuthority) () -> "ROLE_root");
             return strings;
         }
-        MessageService messageService = new ClassPathXmlApplicationContext().getBean(MessageService.class);
-        boolean exists = messageService.lambdaQuery().eq(Message::getFromUser, studentMessage.getAccount())
-                .eq(Message::getContent, studentMessage.getPassword()).exists();
-        if (exists){
-            strings.add(() ->messageService.lambdaQuery().eq(Message::getFromUser, studentMessage.getAccount())
-                    .eq(Message::getContent, studentMessage.getPassword()).toString());
-        }
-        return strings;
+        return null;
     }
+
     @Override
     public String getPassword() {
         return studentMessage.getPassword();
