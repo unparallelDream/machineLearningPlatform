@@ -69,6 +69,9 @@ public class LogController {
 
     @GetMapping("/send/{email}")
     public Result<String> sendMsg(@PathVariable String email) {
+        if(email==null&&Objects.equals(email,"null")){
+        return Result.<String>success(null).successMsg("验证码发送失败");
+        }
         String code = ValidateCodeUtils.generateValidateCode4String(6);
         stringRedisTemplate.opsForValue().set(email, code, 5, TimeUnit.MINUTES);
         String subject = "登录验证码";
