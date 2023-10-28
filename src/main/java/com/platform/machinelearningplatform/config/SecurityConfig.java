@@ -60,7 +60,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
+   @Bean
     public SecurityFilterChain filterChain(@Autowired HttpSecurity http) throws Exception {
         http
                 //关闭csrf
@@ -70,31 +70,11 @@ public class SecurityConfig {
         http
                 .authorizeRequests()
                 // 对于登录接口 允许匿名访问
-                .antMatchers("/student/login").permitAll()
-                .antMatchers("/student/register").anonymous()
-                .antMatchers("/student/loginEmail").permitAll()
-                .antMatchers("/student/send/**").permitAll()
-                .antMatchers("/student/updateAvatar").permitAll()
-                .antMatchers("/static/**", "/index").hasAuthority("ROLE_root")
-                .antMatchers("/manager/getTrainingData").authenticated()
-                .antMatchers("/manager/getTrainResult").authenticated()
-                .antMatchers("/manager/getParamsById").authenticated()
-                .antMatchers("/manager/**").hasAuthority("ROLE_root")
-//                .permitAll()
-                .antMatchers("/markdown/**").permitAll()
-                .antMatchers("/swagger-ui.html").permitAll()
-                .antMatchers("/doc.html").permitAll()
-                .antMatchers("/webSocket/**").permitAll()
-                .antMatchers("/webjars/**").permitAll()
-                .antMatchers("/swagger-resources").permitAll()
-                .antMatchers("/v2/api-docs").permitAll()
-//                .antMatchers("/**").permitAll()
-                .and()
-                // 除上面外的所有请求全部需要鉴权认证
-                .authorizeRequests()
-                .anyRequest().authenticated()
-//                .and()
-//                .httpBasic()
+                .antMatchers("/static/**", "/index","/manager/**").hasAuthority("ROLE_root")
+                .antMatchers("/manager/getTrainingData","/manager/getParamsById","/manager/getTrainResult")
+                .authenticated()
+                .antMatchers().hasAuthority("ROLE_root")
+                .antMatchers("/**").permitAll()
         ;
         //认证过滤器
         http
